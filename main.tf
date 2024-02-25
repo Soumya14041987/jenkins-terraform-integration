@@ -2,6 +2,12 @@ provider "aws" {
   region = var.aws_region
 }
 
+data "aws_availability_zones" "available" {
+  filter {
+    name   = "zone-type"
+    values = ["availability-zone"]
+  }
+}
 
 
 # Create AWS ec2 instance
@@ -21,3 +27,4 @@ tags= {
     Name = "my_elastic_ip"
   }
 }
+
