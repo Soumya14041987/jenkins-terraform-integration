@@ -2,7 +2,7 @@ terraform {
   backend "s3" {
     bucket         = "two-tier-app-deploy"
     region         = "us-east-1"
-    key            = "two-tier-app-deploy/terraform.tfstate"
+    key            = "terraform.tfstate"
     dynamodb_table = "Lock-Files"
     encrypt        = true
   }
