@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+ 
+    stages {
+        stage('checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/2tier']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Soumya14041987/jenkins-terraform-integration.git']]])
+            }
+        }
+        stage('init') {
+            steps {
+                dir('Two-Tier-Architecture/bloody-sweet') {
+                    sh 'terraform init'
+                }
+            }
+        }
+        stage('terraform action') {
+            steps {
+                echo "Terraform action is --> ${action}"
+                dir('Two-Tier-Architecture/bloody-sweet') {
+                    sh "terraform ${action} --auto-approve -var-file='variables.tfvars'"
+                }
+            }
+        }
+    }
+}
+
