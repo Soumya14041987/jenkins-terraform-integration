@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket         = "my-ews-baket1"
+    bucket         = "two-tier-app-deploy"
     region         = "us-east-1"
     key            = "Non-Modularized/Two-Tier-Architecture/terraform.tfstate"
     dynamodb_table = "Lock-Files"
