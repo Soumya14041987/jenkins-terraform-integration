@@ -3,7 +3,7 @@ terraform {
     bucket         = "two-tier-app-deploy"
     region         = "us-east-1"
     key            = "terraform.tfstate"
-    dynamodb_table = "Lock-Files"
+    dynamodb_table = "two-tier-app"
     encrypt        = true
   }
   required_version = ">=0.13.0"
